@@ -25,44 +25,55 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === "rock") {
         switch(computerSelection) {
             case "rock":
-                return "Draw!";
+                return 0;
                 break;
             case "paper":
-                return "You lose! Paper beats rock.";
+                return 0;
                 break;
             case "scissors":
-                return "You win! Rock beats scissors."
+                return 1;
                 break;
         }
     } else if (playerSelection.toLowerCase() === "paper") {
         switch (computerSelection) {
             case "rock":
-                return "You win! Paper beats rock.";
+                return 1;
                 break;
             case "paper":
-                return "Draw";
+                return 0;
                 break;
             case "scissors":
-                return "You lose! Scissors beats paper."
+                return 0;
                 break;
         }
     } else if (playerSelection.toLowerCase() === "scissors") {
         switch (computerSelection) {
             case "rock":
-                return "You lose! Rock beats scissors.";
+                return 0;
                 break;
             case "paper":
-                return "You win! Scissors beats paper.";
+                return 1;
                 break;
             case "scissors":
-                return "Draw!"
+                return 0;
                 break;
         }
     }
 }
 
-let playerSelection = "SCIssors";
-let computerSelection = computerPlay();
-console.log(computerSelection);
+function game() {
+    let count = 0;
 
-console.log(playRound(playerSelection, computerSelection));
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Choose rock, paper, or scissors");
+        let computerSelection = computerPlay();
+        count += playRound(playerSelection, computerSelection);
+    }
+    if (count > 2) {
+        return console.log("You win! " + count + " out of 5.")
+    } else {
+        return console.log("You lose!" + count + " out of 5.")
+    }
+}
+
+game();
