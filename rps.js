@@ -25,36 +25,45 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === "rock") {
         switch(computerSelection) {
             case "rock":
+                console.log("Draw!");
                 return 0;
                 break;
             case "paper":
+                console.log("Paper beats rock, you lose!");
                 return 0;
                 break;
             case "scissors":
+                console.log("Rock beats scissors, you win!");
                 return 1;
                 break;
         }
     } else if (playerSelection.toLowerCase() === "paper") {
         switch (computerSelection) {
             case "rock":
+                console.log("Paper beats rock, you win!");
                 return 1;
                 break;
             case "paper":
+                console.log("Draw!");
                 return 0;
                 break;
             case "scissors":
+                console.log("Scissors beat paper, you lose!");
                 return 0;
                 break;
         }
     } else if (playerSelection.toLowerCase() === "scissors") {
         switch (computerSelection) {
             case "rock":
+                console.log("Rock beats scissors, you lose!");
                 return 0;
                 break;
             case "paper":
+                console.log("Scissors beats paper, you win!");
                 return 1;
                 break;
             case "scissors":
+                console.log("Draw!");
                 return 0;
                 break;
         }
