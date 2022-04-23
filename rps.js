@@ -13,6 +13,7 @@ let drawsCount;
 // computerWins.textContent = computerCount;
 
 function load() {
+    roundResult.textContent = "First to 5 wins! Click a button to play!";
     playerCount = 0;
     computerCount = 0;
     drawsCount = 0;
@@ -47,6 +48,8 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection);
+    console.log(computerSelection);
     if (playerSelection.toLowerCase() === "rock") {
         switch(computerSelection) {
             case "rock":
@@ -87,13 +90,13 @@ function playRound(playerSelection, computerSelection) {
         switch (computerSelection) {
             case "rock":
                 roundResult.textContent = "Rock beats scissors, you lose!";
-                playerCount++;
-                computerWins.textContent = playerCount;
+                computerCount++;
+                computerWins.textContent = computerCount;
                 break;
             case "paper":
                 roundResult.textContent = "Scissors beats paper, you win!";
-                computerCount++;
-                playerWins.textContent = computerCount;
+                playerCount++;
+                playerWins.textContent = playerCount;
                 break;
             case "scissors":
                 roundResult.textContent = "Draw!";
@@ -126,12 +129,16 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     playRound(button.id, computerPlay());
 
-    if (playerCount == 5) {
+    if (playerCount === 5) {
         load();
+        console.log(playerCount);
+        console.log(computerCount);
         return alert("You win!")
 
-    } else if (computerCount == 5){
+    } else if (computerCount === 5){
         load();
+        console.log(playerCount);
+        console.log(computerCount);
         return alert("You lose!")
     }
   });
