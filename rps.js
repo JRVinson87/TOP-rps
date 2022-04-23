@@ -70,19 +70,27 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let count = 0;
+// function game() {
+//     let count = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Choose rock, paper, or scissors");
-        let computerSelection = computerPlay();
-        count += playRound(playerSelection, computerSelection);
-    }
-    if (count > 2) {
-        return console.log("You win! " + count + " out of 5.")
-    } else {
-        return console.log("You lose!" + count + " out of 5.")
-    }
-}
+//     for (let i = 0; i < 5; i++) {
+//         let playerSelection = prompt("Choose rock, paper, or scissors");
+//         let computerSelection = computerPlay();
+//         count += playRound(playerSelection, computerSelection);
+//     }
+//     if (count > 2) {
+//         return console.log("You win! " + count + " out of 5.")
+//     } else {
+//         return console.log("You lose!" + count + " out of 5.")
+//     }
+// }
 
-game();
+// game();
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    playRound(button.id, computerPlay());
+  });
+});
