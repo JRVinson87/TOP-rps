@@ -116,15 +116,15 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     playRound(button.id, computerPlay());
 
-    // if (playerCount == 5) {
-    //     computerCount = 0;
-    //     playerCount = 0;
-    //     return console.log("You win!")
+    if (playerCount == 5) {
+        computerCount = 0;
+        playerCount = 0;
+        return console.log("You win!")
 
-    // } else if (computerCount == 5){
-    //     computerCount = 0;
-    //     playerCount = 0;
-    //     return console.log("You lose!")
-    // }
+    } else if (computerCount == 5){
+        computerCount = 0;
+        playerCount = 0;
+        return console.log("You lose!")
+    }
   });
 });
