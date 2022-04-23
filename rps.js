@@ -1,3 +1,18 @@
+const roundResult = document.querySelector('#round-result');
+const buttons = document.querySelectorAll('button');
+const playerWins = document.querySelector('#player-wins');
+const computerWins = document.querySelector('#computer-wins');
+const draws = document.querySelector('#draws-wins');
+
+const playerCount = 0;
+const computerCount = 0;
+
+window.onload = function() {
+    playerWins.textContent = 0;
+    draws.textContent = 0;
+    computerWins.textContent = 0;
+}
+
 function computerPlay() {
     x = Math.floor(Math.random() * 10);
     
@@ -25,46 +40,46 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === "rock") {
         switch(computerSelection) {
             case "rock":
-                console.log("Draw!");
-                return 0;
+                roundResult.textContent = "Draw!";
+                draws.textContent += 1;
                 break;
             case "paper":
-                console.log("Paper beats rock, you lose!");
-                return 0;
+                roundResult.textContent = "Paper beats rock, you lose!";
+                computerWins.textContent += 1;
                 break;
             case "scissors":
-                console.log("Rock beats scissors, you win!");
-                return 1;
+                roundResult.textContent = "Rock beats scissors, you win!";
+                playerWins.textContent += 1;
                 break;
         }
     } else if (playerSelection.toLowerCase() === "paper") {
         switch (computerSelection) {
             case "rock":
-                console.log("Paper beats rock, you win!");
-                return 1;
+                roundResult.textContent = "Paper beats rock, you win!";
+                playerWins.textContent += 1;
                 break;
             case "paper":
-                console.log("Draw!");
-                return 0;
+                roundResult.textContent = "Draw!";
+                draws.textContent += 1;
                 break;
             case "scissors":
-                console.log("Scissors beat paper, you lose!");
-                return 0;
+                roundResult.textContent = "Scissors beat paper, you lose!";
+                computerWins.textContent += 1;
                 break;
         }
     } else if (playerSelection.toLowerCase() === "scissors") {
         switch (computerSelection) {
             case "rock":
-                console.log("Rock beats scissors, you lose!");
-                return 0;
+                roundResult.textContent = "Rock beats scissors, you lose!";
+                computerWins.textContent += 1;
                 break;
             case "paper":
-                console.log("Scissors beats paper, you win!");
-                return 1;
+                roundResult.textContent = "Scissors beats paper, you win!";
+                playerWins.textContent += 1;
                 break;
             case "scissors":
-                console.log("Draw!");
-                return 0;
+                roundResult.textContent = "Draw!";
+                draws.textContent += 1;
                 break;
         }
     }
@@ -87,10 +102,20 @@ function playRound(playerSelection, computerSelection) {
 
 // game();
 
-const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     playRound(button.id, computerPlay());
+
+    if (playerCount == 5) {
+        computerCount = 0;
+        playerCount = 0;
+        return console.log("You win!")
+
+    } else if (computerCount == 5){
+        computerCount = 0;
+        playerCount = 0;
+        return console.log("You lose!")
+    }
   });
 });
