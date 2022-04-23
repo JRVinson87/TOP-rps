@@ -4,14 +4,24 @@ const playerWins = document.querySelector('#player-wins');
 const computerWins = document.querySelector('#computer-wins');
 const draws = document.querySelector('#draws');
 
-let playerCount = 0;
-let computerCount = 0;
-let drawsCount = 0;
+let playerCount;
+let computerCount;
+let drawsCount;
 
-playerWins.textContent = playerCount;
-draws.textContent = drawsCount;
-computerWins.textContent = computerCount;
+// playerWins.textContent = playerCount;
+// draws.textContent = drawsCount;
+// computerWins.textContent = computerCount;
 
+function load() {
+    playerCount = 0;
+    computerCount = 0;
+    drawsCount = 0;
+    computerWins.textContent = computerCount;
+    playerWins.textContent = playerCount;
+    draws.textContent = drawsCount;
+}
+
+load();
 
 function computerPlay() {
     x = Math.floor(Math.random() * 10);
@@ -117,14 +127,12 @@ buttons.forEach((button) => {
     playRound(button.id, computerPlay());
 
     if (playerCount == 5) {
-        computerCount = 0;
-        playerCount = 0;
-        return console.log("You win!")
+        load();
+        return alert("You win!")
 
     } else if (computerCount == 5){
-        computerCount = 0;
-        playerCount = 0;
-        return console.log("You lose!")
+        load();
+        return alert("You lose!")
     }
   });
 });
