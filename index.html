@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock, Paper, Scissors</title>
-    <script type="text/javascript" src="rps.js" defer></script>
+    <script type="text/javascript" src="./rps.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>ROCK! PAPER! SCISSORS!</h1>
-    </header>
     <div id="main">
+        <header>
+            <h1 class="center-flex" >ROCK! PAPER! SCISSORS!</h1>
+        </header>
         <div id="buttons">
             <button id="rock" name="rock" value="rock">ROCK</button>
             <button id="paper" name="paper" value="paper">PAPER</button>
             <button id="scissors" name="scissors" value="scissors">SCISSORS</button>
         </div>
-        <h2>CURRENT SCORE</h2>
-        <div id="score">
-            <h3>Player Wins</h3>
-            <h3>Draw</h3>
-            <h3>Computer Wins</h3>
+        <br>
+        <h2 class="center-flex">CURRENT SCORE</h2>
+        <div id="scoreboard">
+            <div class="score-box" id="score-player">
+                <h3>Player Wins</h3>
+                <span id="player-wins">0</span>
+            </div>
+            <div class="score-box" id="score-draw">
+                <h3>Draws</h3>
+                <span id="draws">0</span>
+            </div>
+            <div class="score-box" id="score-computer">
+                <h3>Computer Wins</h3>
+                <span id="computer-wins">0</span>
+            </div>
         </div>
     </div>
 </body>
